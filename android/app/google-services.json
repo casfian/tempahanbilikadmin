@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "690271671257",
+    "project_id": "tempahbilik-b556a",
+    "storage_bucket": "tempahbilik-b556a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690271671257:android:3238f6690aa56e258f3fc8",
+        "android_client_info": {
+          "package_name": "com.example.tempahanbilikadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690271671257-n32tensc5aog5bhne3aapnoo208fddn4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHcwJFcC196RCuHVyBU314MmZRUPPHTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690271671257-n32tensc5aog5bhne3aapnoo208fddn4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690271671257:android:bef0454701a5fe718f3fc8",
+        "android_client_info": {
+          "package_name": "com.example.tempahbilik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690271671257-n32tensc5aog5bhne3aapnoo208fddn4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHcwJFcC196RCuHVyBU314MmZRUPPHTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690271671257-n32tensc5aog5bhne3aapnoo208fddn4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
