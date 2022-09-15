@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tempahanbilikadmin/authentication.dart';
 import 'package:tempahanbilikadmin/kalendartempahan.dart';
 
 class Home extends StatefulWidget {
@@ -40,8 +42,12 @@ class _HomeState extends State<Home> {
                 Navigator.push(context, route);
               },
             ),
-            const ListTile(
-              title: Text('Logout'),
+            ListTile(
+              title: const Text('Logout'),
+              onTap: () {
+                //code
+                context.read<AuthenticationProvider>().signOut();
+              },
             )
           ],
         ),
@@ -69,8 +75,10 @@ class _HomeState extends State<Home> {
                           Image.asset('images/${data['photo'].toString()}.jpg'),
                       //leading: Text(data['status'].toString()),
                       title: Text(data['name'].toString()),
-                      subtitle:
-                          Text('Status: ${data['status']},\n( ${data['mula']} hingga ${data['tamat']} )'),
+                      subtitle: Text(
+                        'Status: ${data['status']},\n( ${data['mula']}-${data['tamat']} )',
+                        style: const TextStyle(fontSize: 10),
+                      ),
                       trailing: PopupMenuButton<String>(
                         icon: const Icon(Icons.settings),
                         itemBuilder: (BuildContext context) =>
@@ -106,9 +114,7 @@ class _HomeState extends State<Home> {
                             } catch (e) {
                               debugPrint(e.toString());
                             }
-                          } else if (value == "Pinda") {
-
-                          }
+                          } else if (value == "Pinda") {}
                         },
                       ),
                     ),
