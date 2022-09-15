@@ -6,7 +6,6 @@ import 'package:intl/intl.dart';
 import 'package:tempahanbilikadmin/tempahan.dart';
 import 'package:tempahanbilikadmin/tempahandatasource.dart';
 
-
 class KalendarTempahan extends StatefulWidget {
   const KalendarTempahan({super.key});
 
@@ -20,7 +19,10 @@ class _KalendarTempahanState extends State<KalendarTempahan> {
   TempahanDataSource? events;
 
   Future<void> getTempahan() async {
-    var snapshots = await firestore.collection("tempahan").where('status', isEqualTo: 'lulus').get();
+    var snapshots = await firestore
+        .collection("tempahan")
+        .where('status', isEqualTo: 'lulus')
+        .get();
 
     List<Tempahan> list = snapshots.docs
         .map((e) => Tempahan(
@@ -47,6 +49,17 @@ class _KalendarTempahanState extends State<KalendarTempahan> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Kalendar Tempahan'),
+        backgroundColor: Colors.purple,
+        actions: [
+          IconButton(
+              onPressed: () {
+                getTempahan();
+                setState(() {
+                  
+                });
+              },
+              icon: const Icon(Icons.refresh))
+        ],
       ),
       body: SfCalendar(
         view: CalendarView.month,

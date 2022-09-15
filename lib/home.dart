@@ -12,19 +12,25 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  final List<String> options = <String>['Delete', 'Update'];
+  final List<String> options = <String>['Padam', 'Lulus', 'Pinda'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Senarai Tempahan'),
+        backgroundColor: Colors.purple,
       ),
       drawer: Drawer(
         child: ListView(
           children: [
-            const ListTile(
-              title: Text('Home'),
+            ListTile(
+              title: const Text('Home'),
+              onTap: () {
+                MaterialPageRoute route =
+                    MaterialPageRoute(builder: (context) => const Home());
+                Navigator.push(context, route);
+              },
             ),
             ListTile(
               title: const Text('Kalendar'),
@@ -40,8 +46,8 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      body: FutureBuilder(
-          future: firestore.collection('tempahan').get(),
+      body: StreamBuilder(
+          stream: firestore.collection('tempahan').snapshots(),
           builder: (context, snapshot) {
             //check error here
             if (snapshot.hasError) {
@@ -61,6 +67,7 @@ class _HomeState extends State<Home> {
                     child: ListTile(
                       leading:
                           Image.asset('images/${data['photo'].toString()}.jpg'),
+                      //leading: Text(data['status'].toString()),
                       title: Text(data['name'].toString()),
                       subtitle:
                           Text('( ${data['mula']} hingga ${data['tamat']} )'),
@@ -74,8 +81,8 @@ class _HomeState extends State<Home> {
                           );
                         }).toList(),
                         onSelected: (String value) {
-                          if (value == "Delete") {
-                            print(document.id);
+                          if (value == "Padam") {
+                            debugPrint(document.id);
                             try {
                               firestore
                                   .collection('tempahan')
@@ -87,7 +94,7 @@ class _HomeState extends State<Home> {
                             } catch (e) {
                               debugPrint(e.toString());
                             }
-                          } else if (value == "Update") {
+                          } else if (value == "Lulus") {
                             try {
                               firestore
                                   .collection('tempahan')
@@ -99,6 +106,8 @@ class _HomeState extends State<Home> {
                             } catch (e) {
                               debugPrint(e.toString());
                             }
+                          } else if (value == "Pinda") {
+
                           }
                         },
                       ),
