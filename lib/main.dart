@@ -15,7 +15,8 @@ void main() async {
   //step 1. Notification
   AwesomeNotifications().initialize(
       // set the icon to null if you want to use the default app icon
-      'resource://drawable/res_notification_app_icon',
+      //'resource://drawable/res_notification_app_icon',
+      'resource://drawable/ic_launcher',
       [
         NotificationChannel(
             channelGroupKey: 'basic_channel_group',
@@ -23,7 +24,6 @@ void main() async {
             channelName: 'Basic notifications',
             channelDescription: 'Notification channel for basic tests',
             defaultColor: const Color(0xFF9D50DD),
-            icon: null,
             channelShowBadge: true,
             importance: NotificationImportance.High,
             ledColor: Colors.red)
