@@ -64,8 +64,8 @@ class _BuatBadgeState extends State<BuatBadge> {
                   content: NotificationContent(
                       id: 19,
                       channelKey: 'basic_channel',
-                      title: 'Simple Notification',
-                      body: 'Simple body',
+                      title: 'Ini Simple Notification',
+                      body: 'Ini content utk Notification saya',
                       notificationLayout: NotificationLayout.Default,
                       ));
                       
